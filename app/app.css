@@ -153,6 +153,7 @@ h3 {
 
 .comments-content {
 	overflow-y: auto;
+	font-size: 14px;
 	max-height: calc(100vh - 280px);
 	width: 100%;
 }
@@ -183,6 +184,8 @@ h3 {
 	height: 90px;
 	resize: none;
 	padding: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
 }
 
 .error-border {
