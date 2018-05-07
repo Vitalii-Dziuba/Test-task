@@ -1,1 +1,40 @@
-items.html
+<div class="items">
+	<h3>Items</h3>
+	<form class="items-form" ng-submit="$ctrl.addItem()" novalidate name="$ctrl.addForm">
+		<input placeholder="Type name here..." ng-model="$ctrl.newItem.name" ng-required="true"
+			ng-class="{'error-border': $ctrl.addForm.$invalid && $ctrl.addForm.$submitted}">
+		<button >Add new</button>
+	</form>
+	<div class="items-list">
+		<div class="items-list-item" ng-repeat="item in $ctrl.items" ng-click="$ctrl.selectItem($index)"
+			ng-class="{'item-selected': $ctrl.selectedItem === $index}">
+			<div class="item-content">
+				<span class="item-name">{{item.name}}</span>
+				<span class="item-count" ng-if="item.comments.length">{{item.comments.length}}</span>
+			</div>
+			<button type="button" ng-click="$ctrl.removeItem($index)">Delete</button>
+		</div>
+	</div>
+</div>
+
+<div class="comments">
+	<div class="comments-height" ng-show="$ctrl.items.length">
+		<h3>Comments #{{$ctrl.selectedItem + 1}}</h3>
+		<div class="comments-content">
+			<div class="comment-item" ng-repeat="comment in $ctrl.comments">
+				<div class="comment-avatar" ng-style="{background: comment.color}"></div>
+				<div class="comment-text">{{comment.text}}</div>
+			</div>
+		</div>
+
+		<form class="comment-new" novalidate name="$ctrl.commentForm">
+			<div class="comment-avatar" ng-style="{background: $ctrl.newComment.color}"></div>
+			<textarea ng-keypress="$ctrl.addComment($event)" ng-required="true" ng-model="$ctrl.newComment.text"
+				ng-class="{'error-border': $ctrl.commentForm.$invalid && $ctrl.commentForm.$submitted}"></textarea>
+		</form>
+	</div>
+
+	<h3 ng-show="!$ctrl.items.length">There is not any item</h3>
+</div>
+
+

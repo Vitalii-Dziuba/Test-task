@@ -4,18 +4,18 @@
         <meta charset="utf-8">
         <title>Test task</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <link rel="stylesheet" href="app.css">
     </head>
-    <body>
-        <left-bar></left-bar>
-        <items></items>
-        <comments></comments>
-
+    <body ng-controller="BodyController">
+        <left-bar class="left-bar"></left-bar>
+        <items class="content"></items>
 
         <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
         <script src="app.js"></script>
         <script src="components/left-bar/left-bar.js"></script>
         <script src="components/items/items.js"></script>
-        <script src="components/comments/comments.js"></script>
+        <script src="controllers/body.js"></script>
     </body>
 </html>
